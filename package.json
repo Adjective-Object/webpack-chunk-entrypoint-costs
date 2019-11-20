@@ -1,17 +1,17 @@
 {
-  "name": "webpack-import-usage-stats",
+  "name": "webpack-chunk-entrypoint-costs",
   "version": "0.0.1",
   "author": "Max Huang-Hobbs <mhuan13@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "repository": "github:Adjective-Object/webpack-import-usage-stats",
+  "repository": "github:Adjective-Object/webpack-chunk-entrypoint-costs",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
     "test": "jest",
-    "format": "prettier --write './src/**.ts'"
+    "format": "prettier --write ./src/**/*.ts ./scripts/**/*.js"
   },
   "dependencies": {
     "@types/mz": "^0.0.32",

@@ -2,7 +2,7 @@ import { ModuleGraphWithReasons } from 'webpack-bundle-diff-add-reasons';
 
 export function findDependentModules(
     bundleGraph: ModuleGraphWithReasons,
-    entrypoint: string
+    entrypoint: string,
 ): string[] {
     let traversedModules = new Set<string>();
     let frontier = [entrypoint];
@@ -16,14 +16,14 @@ export function findDependentModules(
         const thisNode = bundleGraph[thisModuleName];
         if (!thisNode) {
             throw new Error(
-                `could not get module node for node name ${thisModuleName}`
+                `could not get module node for node name ${thisModuleName}`,
             );
         }
 
         const nextChildren = thisNode.reasonChildren.filter(
             nodeName =>
                 frontier.indexOf(nodeName) === -1 &&
-                !traversedModules.has(nodeName)
+                !traversedModules.has(nodeName),
         );
         frontier = frontier.concat(nextChildren);
     }

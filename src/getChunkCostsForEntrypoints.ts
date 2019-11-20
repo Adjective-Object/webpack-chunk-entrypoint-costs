@@ -12,7 +12,7 @@ import { getSizeMap } from './getSizeMap';
 export function getChunkCostsForEntrypoints(
     bundleGraph: ModuleGraphWithReasons,
     exploreResult: ExploreResult,
-    entrypointNames: string[]
+    entrypointNames: string[],
 ): ChunkCost {
     const moduleSizeMap = getSizeMap(exploreResult);
 
@@ -21,22 +21,22 @@ export function getChunkCostsForEntrypoints(
     for (let entrypointName of entrypointNames) {
         const dependencyNames = findDependentModules(
             bundleGraph,
-            entrypointName
+            entrypointName,
         );
 
         dependencyNames.forEach((dependancy: string) =>
-            allDepenedantModuleNames.add(dependancy)
+            allDepenedantModuleNames.add(dependancy),
         );
 
         const summedModuleCost = getSummedModuleCost(
             moduleSizeMap,
-            dependencyNames
+            dependencyNames,
         );
         entrypointCosts[entrypointName] = {
             name: entrypointName,
             dependencyNames,
             downstreamCost: summedModuleCost.totalCost,
-            missingModuleNames: summedModuleCost.missingModuleNames
+            missingModuleNames: summedModuleCost.missingModuleNames,
         };
     }
 
@@ -52,37 +52,37 @@ export function getChunkCostsForEntrypoints(
                 comparisonCost.dependencyNames.forEach(
                     comparisonDependencyName => {
                         uniqueDependencies.delete(comparisonDependencyName);
-                    }
+                    },
                 );
             }
         }
         const uniqueDependencyNamesArray = Array.from(uniqueDependencies);
         const uniqueCost = getSummedModuleCost(
             moduleSizeMap,
-            uniqueDependencyNamesArray
+            uniqueDependencyNamesArray,
         );
         entrypointsWithUnique.push({
             ...entrypointCost,
             uniqueDependencyNames: uniqueDependencyNamesArray,
-            uniqueDownstreamCost: uniqueCost.totalCost
+            uniqueDownstreamCost: uniqueCost.totalCost,
         });
     }
 
     return {
         entrypoints: entrypointsWithUnique,
-        modules: getModuleSizeRecordObject(moduleSizeMap)
+        modules: getModuleSizeRecordObject(moduleSizeMap),
     };
 }
 
 export function getModuleSizeRecordObject(
-    sizeMap: SizeMap
+    sizeMap: SizeMap,
 ): Record<string, ModuleCost> {
     const record: Record<string, ModuleCost> = {};
     for (let key of sizeMap.keys()) {
         const size = sizeMap.get(key);
         if (size !== undefined) {
             record[key] = {
-                individualCost: size
+                individualCost: size,
             };
         }
     }

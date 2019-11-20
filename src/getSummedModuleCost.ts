@@ -14,7 +14,7 @@ export interface SummedModuleCosts {
  */
 export function getSummedModuleCost(
     sizeMap: SizeMap,
-    moduleNames: string[]
+    moduleNames: string[],
 ): SummedModuleCosts {
     let totalCost = 0;
     let missingModuleNames = [];
@@ -22,7 +22,7 @@ export function getSummedModuleCost(
     for (let moduleName of moduleNames) {
         const fuzzyMatchedNameFromSizeMap = fuzzyMatchNameToExploreResultName(
             sizeMap,
-            moduleName
+            moduleName,
         );
         if (fuzzyMatchedNameFromSizeMap === null) {
             missingModuleNames.push(moduleName);
@@ -31,7 +31,7 @@ export function getSummedModuleCost(
         const size = sizeMap.get(fuzzyMatchedNameFromSizeMap);
         if (size === undefined) {
             throw new Error(
-                `failed to get size for fuzzy matched name ${fuzzyMatchedNameFromSizeMap}`
+                `failed to get size for fuzzy matched name ${fuzzyMatchedNameFromSizeMap}`,
             );
         }
         totalCost += size;
@@ -39,6 +39,6 @@ export function getSummedModuleCost(
 
     return {
         totalCost: totalCost,
-        missingModuleNames
+        missingModuleNames,
     };
 }

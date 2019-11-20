@@ -9,7 +9,7 @@ describe('getSizeMap', () => {
     beforeEach(async () => {
         exploreResult = await explore([
             joinPath(__dirname, './test-data/FocusOutShellSample.js'),
-            joinPath(__dirname, './test-data/FocusOutShellSample.map')
+            joinPath(__dirname, './test-data/FocusOutShellSample.map'),
         ]);
     });
 

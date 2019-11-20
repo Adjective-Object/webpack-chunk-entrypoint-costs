@@ -3,7 +3,7 @@ import { normalize as normalizePath } from 'path';
 
 export function fuzzyMatchNameToExploreResultName(
     sizeMap: SizeMap,
-    entrypointName: string
+    entrypointName: string,
 ): string | null {
     const normalizedName = normalizePath(entrypointName).replace(/\\/g, '/');
     for (let name of sizeMap.keys()) {

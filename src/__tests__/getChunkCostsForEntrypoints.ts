@@ -11,13 +11,13 @@ describe('getChunkCostsForEntrypoints', () => {
     beforeEach(async () => {
         exploreResult = await explore([
             joinPath(__dirname, './test-data/sample.js'),
-            joinPath(__dirname, './test-data/sample.map')
+            joinPath(__dirname, './test-data/sample.map'),
         ]);
         bundleGraph = JSON.parse(
             await readFile(
                 joinPath(__dirname, 'test-data', 'derived', 'bundleStats.json'),
-                'utf-8'
-            )
+                'utf-8',
+            ),
         ).graph;
     });
 
@@ -27,18 +27,18 @@ describe('getChunkCostsForEntrypoints', () => {
             exploreResult,
             [
                 './packages/roosterjs-react-ribbon/lib/index.ts',
-                './packages/roosterjs-react/lib/index.ts'
-            ]
+                './packages/roosterjs-react/lib/index.ts',
+            ],
         );
         expect(chunkCosts.entrypoints).toEqual(
             jasmine.arrayContaining([
                 jasmine.objectContaining({
-                    name: './packages/roosterjs-react-ribbon/lib/index.ts'
+                    name: './packages/roosterjs-react-ribbon/lib/index.ts',
                 }),
                 jasmine.objectContaining({
-                    name: './packages/roosterjs-react/lib/index.ts'
-                })
-            ])
+                    name: './packages/roosterjs-react/lib/index.ts',
+                }),
+            ]),
         );
     });
 
@@ -48,8 +48,8 @@ describe('getChunkCostsForEntrypoints', () => {
             exploreResult,
             [
                 './packages/roosterjs-react-ribbon/lib/index.ts',
-                './packages/roosterjs-react/lib/index.ts'
-            ]
+                './packages/roosterjs-react/lib/index.ts',
+            ],
         );
         expect(chunkCosts).toMatchSnapshot();
     });

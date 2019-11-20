@@ -11,7 +11,7 @@ describe('fuzzyMatchNameToExploreResultName', () => {
     beforeEach(async () => {
         exploreResult = await explore([
             joinPath(__dirname, './test-data/FocusOutShellSample.js'),
-            joinPath(__dirname, './test-data/FocusOutShellSample.map')
+            joinPath(__dirname, './test-data/FocusOutShellSample.map'),
         ]);
     });
 
@@ -19,7 +19,7 @@ describe('fuzzyMatchNameToExploreResultName', () => {
         const sizeMap: SizeMap = getSizeMap(exploreResult);
         const fuzzyMatch = fuzzyMatchNameToExploreResultName(
             sizeMap,
-            './node_modules/react/index.js'
+            './node_modules/react/index.js',
         );
         expect(fuzzyMatch).toBe('webpack:///node_modules/react/index.js');
     });
@@ -28,7 +28,7 @@ describe('fuzzyMatchNameToExploreResultName', () => {
         const sizeMap: SizeMap = getSizeMap(exploreResult);
         const fuzzyMatch = fuzzyMatchNameToExploreResultName(
             sizeMap,
-            './node_modules/react-dom/index.js'
+            './node_modules/react-dom/index.js',
         );
         expect(fuzzyMatch).not.toBe(null);
         expect(sizeMap.has(fuzzyMatch!)).toBe(true);

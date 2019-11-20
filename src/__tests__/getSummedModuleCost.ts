@@ -11,17 +11,17 @@ describe('getSummedModuleCost', () => {
     beforeEach(async () => {
         exploreResult = await explore([
             joinPath(__dirname, './test-data/FocusOutShellSample.js'),
-            joinPath(__dirname, './test-data/FocusOutShellSample.map')
+            joinPath(__dirname, './test-data/FocusOutShellSample.map'),
         ]);
         sizeMap = getSizeMap(exploreResult);
     });
 
     it('gets the cost of an individual module', () => {
         const { totalCost: reactIndexCost } = getSummedModuleCost(sizeMap, [
-            './node_modules/react/index.js'
+            './node_modules/react/index.js',
         ]);
         expect(reactIndexCost).toEqual(
-            sizeMap.get('webpack:///node_modules/react/index.js')
+            sizeMap.get('webpack:///node_modules/react/index.js'),
         );
         expect(reactIndexCost).not.toBe(0);
     });
@@ -29,17 +29,17 @@ describe('getSummedModuleCost', () => {
     it('gets the cost of multiple modules', () => {
         const { totalCost: summedCost } = getSummedModuleCost(sizeMap, [
             './node_modules/react/index.js',
-            './node_modules/react-dom/index.js'
+            './node_modules/react-dom/index.js',
         ]);
 
         const reactCost = sizeMap.get('webpack:///node_modules/react/index.js');
         const reactDomCost = sizeMap.get(
-            'webpack:///node_modules/react-dom/index.js'
+            'webpack:///node_modules/react-dom/index.js',
         );
 
         if (reactCost === undefined || reactDomCost === undefined) {
             throw new Error(
-                `reactCost = ${reactCost}, reactDomCost = ${reactDomCost}`
+                `reactCost = ${reactCost}, reactDomCost = ${reactDomCost}`,
             );
         }
         expect(summedCost).toEqual(reactCost + reactDomCost);
