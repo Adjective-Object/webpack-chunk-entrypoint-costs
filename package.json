@@ -12,23 +12,30 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@types/webpack": "^4.39.8",
+    "@types/mz": "^0.0.32",
+    "source-map-explorer": "^2.1.1",
     "webpack-bundle-diff": "^0.5.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
     "@types/node": "^12.6.8",
+    "@types/webpack": "^4.39.8",
     "jest": "^24.9.0",
+    "mz": "^2.7.0",
+    "read-json-stream": "^1.1.0",
     "rollup": "^1.17.0",
     "rollup-plugin-typescript2": "^0.22.0",
+    "source-map": "^0.7.3",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "webpack-bundle-diff-add-reasons": "^0.0.1",
+    "webpack-stats-extract-module-ids": "^0.0.1"
   },
   "jest": {
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
-    "testRegex": "src.*(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "src.*(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",

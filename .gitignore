@@ -92,3 +92,7 @@ typings/
 
 # build output
 dist/
+
+*derived*
+*owa*
+
