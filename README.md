@@ -51,7 +51,7 @@ const bundleGraphWithReasons = getModuleGraphWithReasons(
     statsJson,
 );
 
-// explore the sourcamp
+// explore the source map
 const exploredSourcemap = await explore(['./dist/MyApplication.js.map']);
 
 const chunkCosts = getChunkCostsForEntrypoints(
