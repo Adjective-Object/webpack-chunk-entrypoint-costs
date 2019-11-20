@@ -1,23 +1,32 @@
 import { SizeMap } from './types/SizeMap';
 import { fuzzyMatchNameToExploreResultName } from './fuzzyMatchNameToExploreResultName';
 
+export interface SummedModuleCosts {
+    totalCost: number;
+    missingModuleNames: string[];
+}
+
 /**
- * Fuzzy match the modules from `modules` against modules found in the source map, then
+ * Fuzzy match the modules from `modules` against modules found in the source map
+ * and sum their costs.
+ *
+ * This gets the cost of the _individual_ costs of the listed modules
  */
 export function getSummedModuleCost(
     sizeMap: SizeMap,
     moduleNames: string[]
-): number | null {
-    let downstreamCost = 0;
+): SummedModuleCosts {
+    let totalCost = 0;
+    let missingModuleNames = [];
 
-    for (let moduleName in moduleNames) {
+    for (let moduleName of moduleNames) {
         const fuzzyMatchedNameFromSizeMap = fuzzyMatchNameToExploreResultName(
             sizeMap,
             moduleName
         );
         if (fuzzyMatchedNameFromSizeMap === null) {
-            console.warn('failed to fuzzy match for', moduleName, sizeMap);
-            return null;
+            missingModuleNames.push(moduleName);
+            continue;
         }
         const size = sizeMap.get(fuzzyMatchedNameFromSizeMap);
         if (size === undefined) {
@@ -25,8 +34,11 @@ export function getSummedModuleCost(
                 `failed to get size for fuzzy matched name ${fuzzyMatchedNameFromSizeMap}`
             );
         }
-        downstreamCost += size;
+        totalCost += size;
     }
 
-    return downstreamCost;
+    return {
+        totalCost: totalCost,
+        missingModuleNames
+    };
 }

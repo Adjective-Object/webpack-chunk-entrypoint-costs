@@ -36,5 +36,6 @@ If `lazyIndex.mod3` is never evaluated, then it will be included in the chunk bu
 yarn # install dependencies
 yarn build # build.             Can also use `rollup -c`
 yarn watch # build with watch.  Can also use `rollup -cw`
+node ./scripts/bootstrap-dev-data.js # bootstrap derived data for tests
 yarn jest # run tests
 ```

@@ -9,14 +9,14 @@ export function findDependentModules(
     while (frontier.length) {
         const thisModuleName = frontier.pop();
         if (!thisModuleName) {
-            throw new Error('non-emtpy module frontier popped undefined');
+            throw new Error('non-empty module frontier popped undefined');
         }
         traversedModules.add(thisModuleName);
 
         const thisNode = bundleGraph[thisModuleName];
         if (!thisNode) {
             throw new Error(
-                `could not get module node for node name ${thisNode}`
+                `could not get module node for node name ${thisModuleName}`
             );
         }
 

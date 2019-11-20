@@ -29,7 +29,7 @@ statsJsonStream.done((err, statsJson) => {
             __dirname,
             '..',
             'src',
-            '__test__',
+            '__tests__',
             'test-data',
             'derived'
         );
