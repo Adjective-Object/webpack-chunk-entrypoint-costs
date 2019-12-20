@@ -33,4 +33,14 @@ describe('fuzzyMatchNameToExploreResultName', () => {
         expect(fuzzyMatch).not.toBe(null);
         expect(sizeMap.has(fuzzyMatch!)).toBe(true);
     });
+
+    it('Matches names that have had their extensions changed in the sourcemap', () => {
+        const sizeMap: SizeMap = getSizeMap(exploreResult);
+        const fuzzyMatch = fuzzyMatchNameToExploreResultName(
+            sizeMap,
+            './node_modules/office-ui-fabric-react/lib/components/Dialog/index.js',
+        );
+        expect(fuzzyMatch).not.toBe(null);
+        expect(sizeMap.has(fuzzyMatch!)).toBe(true);
+    });
 });
