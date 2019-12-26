@@ -1110,7 +1110,7 @@ Object {
   ],
   "modules": Object {
     "<unmapped>": Object {
-      "individualCost": 1769,
+      "individualCost": 1719,
     },
     "null": Object {
       "individualCost": 24891,

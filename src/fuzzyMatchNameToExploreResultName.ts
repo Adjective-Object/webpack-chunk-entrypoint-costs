@@ -1,5 +1,4 @@
 import { SizeMap } from './types/SizeMap';
-import { normalize as normalizePath } from 'path';
 
 const getExtension = (p: string): string | null => {
     const lastIndexDot = p.lastIndexOf('.');
@@ -10,11 +9,17 @@ const getExtension = (p: string): string | null => {
     return p.substring(lastIndexSlash);
 };
 
+const normalizePath = (p: string): string =>
+    p
+        .replace(/\\/g, '/')
+        .replace(/\/+/, '/')
+        .replace(/^\.\//, '');
+
 export function fuzzyMatchNameToExploreResultName(
     sizeMap: SizeMap,
     entrypointName: string,
 ): string | null {
-    let normalizedName = normalizePath(entrypointName).replace(/\\/g, '/');
+    let normalizedName = normalizePath(entrypointName);
     const extension = getExtension(normalizedName);
     if (extension) {
         normalizedName = normalizedName.substring(
