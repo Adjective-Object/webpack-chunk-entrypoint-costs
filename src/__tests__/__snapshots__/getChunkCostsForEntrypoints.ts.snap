@@ -472,7 +472,7 @@ Object {
         "./node_modules/office-ui-fabric-react/lib/components/Button/ActionButton/ActionButton.styles.js",
         "./node_modules/classnames/index.js",
       ],
-      "downstreamCost": 544150,
+      "downstreamCost": 544470,
       "missingModuleNames": Array [
         "./node_modules/office-ui-fabric-react/lib/components/Dialog/index.js",
         "./node_modules/@uifabric/styling/lib/utilities/index.js",
@@ -525,7 +525,7 @@ Object {
         "./packages/roosterjs-react-ribbon/lib/components/Ribbon.scss.g.ts",
         "./node_modules/classnames/index.js",
       ],
-      "uniqueDownstreamCost": 26058,
+      "uniqueDownstreamCost": 26358,
     },
     Object {
       "dependencyNames": Array [
@@ -1056,7 +1056,7 @@ Object {
         "./node_modules/roosterjs-editor-api/lib/format/clearBlockFormat.js",
         "./node_modules/roosterjs-editor-api/lib/format/changeFontSize.js",
       ],
-      "downstreamCost": 645362,
+      "downstreamCost": 645384,
       "missingModuleNames": Array [
         "./node_modules/office-ui-fabric-react/lib/components/Tooltip/index.js",
         "./node_modules/@uifabric/styling/lib/utilities/index.js",
@@ -1178,15 +1178,21 @@ Object {
         "./node_modules/roosterjs-editor-types/lib/browser/DocumentPosition.js",
         "./node_modules/roosterjs-editor-types/lib/browser/DocumentCommand.js",
       ],
-      "uniqueDownstreamCost": 127270,
+      "uniqueDownstreamCost": 127272,
     },
   ],
   "modules": Object {
-    "<unmapped>": Object {
-      "individualCost": 1769,
+    "[EOLs]": Object {
+      "individualCost": 100,
     },
-    "null": Object {
+    "[no source]": Object {
       "individualCost": 24891,
+    },
+    "[sourceMappingURL]": Object {
+      "individualCost": 31,
+    },
+    "[unmapped]": Object {
+      "individualCost": 1688,
     },
     "webpack:///(webpack)/buildin/global.js": Object {
       "individualCost": 131,
@@ -2065,7 +2071,7 @@ Object {
       "individualCost": 783,
     },
     "webpack:///node_modules/roosterjs-editor-api/lib/utils/applyInlineStyle.js": Object {
-      "individualCost": 723,
+      "individualCost": 725,
     },
     "webpack:///node_modules/roosterjs-editor-api/lib/utils/collapseSelectedBlocks.js": Object {
       "individualCost": 435,
@@ -2242,7 +2248,7 @@ Object {
       "individualCost": 191,
     },
     "webpack:///node_modules/roosterjs-editor-dom/lib/selection/getPositionRect.js": Object {
-      "individualCost": 751,
+      "individualCost": 753,
     },
     "webpack:///node_modules/roosterjs-editor-dom/lib/selection/getSelectionPath.js": Object {
       "individualCost": 645,
@@ -2383,7 +2389,7 @@ Object {
       "individualCost": 1276,
     },
     "webpack:///node_modules/roosterjs-editor-plugins/lib/CustomReplace/CustomReplace.js": Object {
-      "individualCost": 1910,
+      "individualCost": 1922,
     },
     "webpack:///node_modules/roosterjs-editor-plugins/lib/HyperLink/HyperLink.js": Object {
       "individualCost": 1209,
@@ -2425,7 +2431,7 @@ Object {
       "individualCost": 446,
     },
     "webpack:///node_modules/roosterjs-editor-plugins/lib/Paste/wordConverter/converterUtils.js": Object {
-      "individualCost": 4815,
+      "individualCost": 4817,
     },
     "webpack:///node_modules/roosterjs-editor-plugins/lib/Paste/wordConverter/wordConverter.js": Object {
       "individualCost": 220,
@@ -2488,7 +2494,7 @@ Object {
       "individualCost": 210,
     },
     "webpack:///node_modules/roosterjs-html-sanitizer/lib/sanitizer/HtmlSanitizer.js": Object {
-      "individualCost": 3704,
+      "individualCost": 3706,
     },
     "webpack:///node_modules/roosterjs-html-sanitizer/lib/utils/cloneObject.js": Object {
       "individualCost": 234,
@@ -2611,7 +2617,7 @@ Object {
       "individualCost": 275,
     },
     "webpack:///packages/roosterjs-react-emoji/lib/components/EmojiIcon.tsx": Object {
-      "individualCost": 542,
+      "individualCost": 544,
     },
     "webpack:///packages/roosterjs-react-emoji/lib/components/EmojiNavBar.scss.g.ts": Object {
       "individualCost": 1014,
@@ -2647,7 +2653,7 @@ Object {
       "individualCost": 2877,
     },
     "webpack:///packages/roosterjs-react-pickers/lib/components/FontNamePicker.tsx": Object {
-      "individualCost": 5928,
+      "individualCost": 6228,
     },
     "webpack:///packages/roosterjs-react-pickers/lib/components/FontSizePicker.tsx": Object {
       "individualCost": 729,

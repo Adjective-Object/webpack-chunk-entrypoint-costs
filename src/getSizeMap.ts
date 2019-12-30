@@ -12,7 +12,7 @@ export function getSizeMap(exploreResult: ExploreResult): SizeMap {
             //         `error building size map: bundle.files ${bundle.bundleName} had null member`
             //     );
             // }
-            sizeMap.set(fileName, bundle.files[fileName]);
+            sizeMap.set(fileName, bundle.files[fileName].size);
         }
     }
     return sizeMap;
