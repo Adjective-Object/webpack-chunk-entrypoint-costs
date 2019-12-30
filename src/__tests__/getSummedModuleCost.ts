@@ -9,10 +9,12 @@ describe('getSummedModuleCost', () => {
     let sizeMap: SizeMap;
 
     beforeEach(async () => {
-        exploreResult = await explore([
-            joinPath(__dirname, './test-data/FocusOutShellSample.js'),
-            joinPath(__dirname, './test-data/FocusOutShellSample.map'),
-        ]);
+        if (exploreResult == null) {
+            exploreResult = await explore([
+                joinPath(__dirname, './test-data/FocusOutShellSample.js'),
+                joinPath(__dirname, './test-data/FocusOutShellSample.map'),
+            ]);
+        }
         sizeMap = getSizeMap(exploreResult);
     });
 

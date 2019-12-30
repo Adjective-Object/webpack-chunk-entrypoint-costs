@@ -9,16 +9,23 @@ describe('getChunkCostsForEntrypoints', () => {
     let bundleGraph: ModuleGraphWithReasons;
 
     beforeEach(async () => {
-        exploreResult = await explore([
-            joinPath(__dirname, './test-data/sample.js'),
-            joinPath(__dirname, './test-data/sample.map'),
-        ]);
-        bundleGraph = JSON.parse(
-            await readFile(
-                joinPath(__dirname, 'test-data', 'derived', 'bundleStats.json'),
-                'utf-8',
-            ),
-        ).graph;
+        if (exploreResult == null || bundleGraph == null) {
+            [exploreResult, bundleGraph] = await Promise.all([
+                explore([
+                    joinPath(__dirname, './test-data/sample.js'),
+                    joinPath(__dirname, './test-data/sample.map'),
+                ]),
+                readFile(
+                    joinPath(
+                        __dirname,
+                        'test-data',
+                        'derived',
+                        'bundleStats.json',
+                    ),
+                    'utf-8',
+                ).then(r => JSON.parse(r).graph),
+            ]);
+        }
     });
 
     it('has an entrypoint for each provided name', () => {

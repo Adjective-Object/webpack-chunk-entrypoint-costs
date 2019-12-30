@@ -9,10 +9,12 @@ describe('fuzzyMatchNameToExploreResultName', () => {
     let exploreResult: ExploreResult;
 
     beforeEach(async () => {
-        exploreResult = await explore([
-            joinPath(__dirname, './test-data/FocusOutShellSample.js'),
-            joinPath(__dirname, './test-data/FocusOutShellSample.map'),
-        ]);
+        if (exploreResult == null) {
+            exploreResult = await explore([
+                joinPath(__dirname, './test-data/FocusOutShellSample.js'),
+                joinPath(__dirname, './test-data/FocusOutShellSample.map'),
+            ]);
+        }
     });
 
     it('fuzzy matches names in the bundle to names from the sizeMap', () => {
