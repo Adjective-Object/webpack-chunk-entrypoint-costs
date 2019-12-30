@@ -38,7 +38,7 @@ describe('fuzzyMatchNameToExploreResultName', () => {
         const sizeMap: SizeMap = getSizeMap(exploreResult);
         const fuzzyMatch = fuzzyMatchNameToExploreResultName(
             sizeMap,
-            './node_modules/office-ui-fabric-react/lib/components/Dialog/index.js',
+            './node_modules/office-ui-fabric-react/lib/components/Dialog/Dialog.js',
         );
         expect(fuzzyMatch).not.toBe(null);
         expect(sizeMap.has(fuzzyMatch!)).toBe(true);

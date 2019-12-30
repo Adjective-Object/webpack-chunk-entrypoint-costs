@@ -6,7 +6,7 @@ const getExtension = (p: string): string | null => {
     if (lastIndexDot === -1 || lastIndexDot < lastIndexSlash) {
         return null;
     }
-    return p.substring(lastIndexSlash);
+    return p.substring(lastIndexDot);
 };
 
 const normalizePath = (p: string): string =>
